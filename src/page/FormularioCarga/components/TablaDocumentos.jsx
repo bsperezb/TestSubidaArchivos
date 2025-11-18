@@ -1,7 +1,25 @@
-export default function TablaDocumentos() {
+
+export default function TablaDocumentos({ documents, setDocuments }) {
     return (
         <div>
-            <h2>Tabla de Documentos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre del Documento</th>
+                        <th>Tamaño</th>
+                        <th>Progreso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {documents.map((doc, index) => (
+                        <tr key={index}>
+                            <td>{doc.name}</td>
+                            <td>{doc.size}</td>
+                            <td>{doc.progress}%</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }

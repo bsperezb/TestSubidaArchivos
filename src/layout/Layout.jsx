@@ -7,7 +7,6 @@ export default function Layout () {
         <div>
             <Header />
             <main>
-                {/* Main content goes here */}
                 <ForumularioCarga />
             </main>
             <Footer />
