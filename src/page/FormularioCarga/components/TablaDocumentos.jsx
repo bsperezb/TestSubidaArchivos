@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 function ProgressBar() {
-    // when charge a new element, the progress bar charge during five seconds
     const [progress, setProgress] = useState(0);
     useEffect(() => {
         const timer = setInterval(() => {
