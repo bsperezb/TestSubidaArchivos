@@ -12,6 +12,17 @@ export default function ForumularioCarga() {
   const [files, setFiles] = useState([]);
   const maxFiles = 5;
 
+  useEffect(() => {
+    const storedFiles = localStorage.getItem('uploadedFiles');
+    if (storedFiles) {
+      try {
+        setFiles(JSON.parse(storedFiles));
+      } catch (error) {
+        console.error("Failed to parse files from local storage", error);
+      }
+    }
+  }, []);
+
   const handleFileInput = (e) => {
     processFiles(Array.from(e.target.files));
     fileInputRef.current.value = "";
@@ -26,6 +37,7 @@ export default function ForumularioCarga() {
     const updatedFiles = [...files, ...newFiles];
     console.log('updatedFiles', updatedFiles);
     setFiles(updatedFiles);
+    localStorage.setItem('uploadedFiles', JSON.stringify(updatedFiles));
     // TODO
     // onFilesSelected?.(updatedFiles);
   };
