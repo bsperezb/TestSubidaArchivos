@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styles from "../styles/formularioCarga.module.css";
 
 
-export default function FormularioSubida({isDragging, setIsDragging, files, setFiles, processFiles, fileInputRef, handleFileInput}) {
+export default function FormularioSubida({ isDragging, setIsDragging, processFiles, fileInputRef, handleFileInput }) {
   const handleDragOver = (e) => {
     e.preventDefault();
     setIsDragging(true);
@@ -17,7 +17,7 @@ export default function FormularioSubida({isDragging, setIsDragging, files, setF
     setIsDragging(false);
     processFiles(Array.from(e.dataTransfer.files));
   };
-   const openFileSelector = () => {
+  const openFileSelector = () => {
     fileInputRef.current?.click();
   };
 
